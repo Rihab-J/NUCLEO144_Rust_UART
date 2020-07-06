@@ -1,0 +1,26 @@
+[package]
+authors = ["Rihab JOUINI <rihab.jouini@mobile-devices.fr>"]
+edition = "2018"
+name = "stm32f4_uart"
+version = "0.1.0"
+
+[dependencies]
+embedded-hal = "0.2"
+nb = "0.1.2"
+cortex-m = "0.6"
+cortex-m-rt = "0.6"
+# Panic behaviour, see https://crates.io/keywords/panic-impl for alternatives
+panic-halt = "0.2"
+heapless = "0.5.5"
+heapless-bytes = "0.1.0" #Newtype around heapless byte Vec with efficient serde.
+
+bare-metal = "0.2.5"
+stm32f4xx-hal =  { version = "0.8.3", features = ["stm32f412"]}
+#stm32f41x ="0.1.1"
+stm32f4 = "0.11.0"
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "s" #optimising the size when compiling 
+
